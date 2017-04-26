@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package proyectofinal.problema3;
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 /**
  *
@@ -14,15 +13,27 @@ public class ProyectofinalProblema3 {
 
     /**
      * @param args the command line arguments
+     * 
+     * Johanna Daniela Macías Martínez A01411534
+   Iván Constantino Hernández A01411529
+   Maythe Portales Barrios A01411461
+   Luisa Fernanda Sosa Brambila A01411485
      */
     public static void main(String[] args) {
         int opc=0;
         boolean flag=true;
          do{
-                opc = solicitaentero("Ingrese la opción deseada: \n"
+             try{
+                String menu=JOptionPane.showInputDialog("Ingrese la opción deseada: \n"
                     + "1. Calcular Máximo Común Divisor \n"
                     + "2. Calcular Mínimo Común Divisor \n"
                     + "3. Salir ");
+            opc=Integer.parseInt(menu);
+           }
+           
+           catch(Exception e){
+               opc=3;
+           }
    
         switch(opc){
            
@@ -36,7 +47,7 @@ public class ProyectofinalProblema3 {
         do{
             int mod = mayor%menor; 
             if(mod==0){
-                JOptionPane.showMessageDialog(null, "El M.C.D. entre "+a+" y "+b+" es: \n"+menor); 
+                JOptionPane.showMessageDialog(null, "El M.C.D. entre "+a+" y "+b+" es: \n"+menor,"Total",1); 
                 band=false;    
             }
             else {
@@ -48,8 +59,8 @@ public class ProyectofinalProblema3 {
         break;  
  
         case 2:
-        a = solicitaentero("el primer número");
-        b = solicitaentero("el segundo número");
+        a = solicitaentero("Escribe el primer número");
+        b = solicitaentero("Escribe el segundo número");
         menor = Math.min(a, b);
         int mcm = 0;
        
@@ -62,12 +73,12 @@ public class ProyectofinalProblema3 {
                 mcm = (a*b)/mcd;
             }
         }
-        JOptionPane.showMessageDialog(null, "El M.C.M. entre "+a+" y "+b+" es: \n"+mcm);
+        JOptionPane.showMessageDialog(null, "El M.C.M. entre "+a+" y "+b+" es: \n"+mcm,"Total",1);
         flag=true;
         break;
         
         case 3:
-            JOptionPane.showMessageDialog(null, "Adios!");
+            JOptionPane.showMessageDialog(null, "Adios!","Total",1);
             flag=false;
             break;
         }
@@ -86,7 +97,7 @@ public class ProyectofinalProblema3 {
                 flag=false;
             }
             catch(Exception e){
-                JOptionPane.showMessageDialog(null,"Error");
+                JOptionPane.showMessageDialog(null, "No tecleaste un númer entero","Error",0);
                 flag=true;
             }
         }
